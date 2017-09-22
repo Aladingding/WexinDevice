@@ -6,7 +6,7 @@
 import React,{ Component } from 'react';
 import Header from '../component/Header.jsx';
 
-class DeviceCategory extends Component{
+class DevCategory extends Component{
     constructor(props){
         super(props);
     }
@@ -14,10 +14,10 @@ class DeviceCategory extends Component{
         return (
             <section>
                 <Header title="设备大类"/>
-                <h2>conetent</h2>
+                <h2>韩梅梅vs李磊</h2>
             </section>
         )
     }
 }
 
-export default DeviceCategory;
+export default DevCategory;

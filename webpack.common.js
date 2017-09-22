@@ -6,25 +6,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-
-const loaders = [
-    {
-        loader: 'css-loader',
-        options: {
-            modules: true
-        }
-    },
-    {
-        loader: 'postcss-loader'
-    },
-    {
-        loader: 'sass-loader'
-    }
-];
-
 module.exports = {
     entry: {
-        app: './WexinHardware/src/index.js'
+        index: './WexinHardware/src/index.js',
+        commons: ['react']
     },
     output: {
         filename: '[name].bundle.js',
@@ -32,26 +17,28 @@ module.exports = {
     },
     module:{
         rules:[
-            // js-compile
+            // js-module
             {
-                test: /(\.jsx|\.js)$/,
+                test: /(\.jsx|\.es6|\.js)$/,
                 use: {
                     loader: "babel-loader",
                     options: {
                         presets: [
-                            "es2015", "react"
+                            "es2015","react"
                         ]
                     }
                 },
                 exclude: /node_modules/
             },
-            { // 样式模块
+            // style-module
+            {
                 test: /(\.css|\.less|\.sass)$/,
                 use: [
                     { loader: "style-loader" },
                     { loader: "css-loader" },
                     { loader: "less-loader" },
-                ]
+                ],
+                exclude: /node_modules/
             },
             // {
             //     test: /(\.less)$/,
@@ -75,20 +62,15 @@ module.exports = {
         ]
     },
     plugins: [
-        new CleanWebpackPlugin(['WexinHardware/build']),
+        new CleanWebpackPlugin(['WexinHardware/build']), // 每次编译清除重复文件
         new HtmlWebpackPlugin({ // 模板文件
             template: path.resolve(__dirname, "./WexinHardware/src/index.ejs"),
             fillName: '../index.html',
             title: 'Production',
         }),
-        new webpack.DefinePlugin({ // react等库文件使用生产版还是开发版
-            'process.env': {
-                NODE_ENV: JSON.stringify('production')  // development:用于开发环境
-            }
-        }),
-        new ExtractTextPlugin({
-            filename: "bundle.[chunkhash].css"
-        })
+        // new ExtractTextPlugin({
+        //     filename: "bundle.[chunkhash].css"
+        // }),
     ],
     resolve: {  // 省略文件扩展名
         extensions: [ '.js', '.jsx', '.es6', '.json', '.css', '.less', '.scss', '.html', '.md', '.markdown', 'coffee'],
