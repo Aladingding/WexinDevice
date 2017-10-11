@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --progress --colors --watch --config webpack.common.js",
-    "dev": "webpack-dev-server --colors --open --config webpack.dev.js",
+    "dev": "webpack-dev-server --port 8991 --hot  --host 192.168.8.54  --colors --open --config webpack.dev.js",
     "pro": "webpack --define process.env.NODE_ENV='production'  --profile --json > stats.json --colors --config webpack.pro.js"
   },
   "keywords": [
@@ -31,6 +31,7 @@
     "less": "^2.7.2",
     "less-loader": "^4.0.5",
     "lodash-webpack-plugin": "^0.11.4",
+    "open-browser-webpack-plugin": "^0.0.5",
     "portfinder": "^1.0.13",
     "postcss-loader": "^2.0.6",
     "react-hot-loader": "^1.3.1",

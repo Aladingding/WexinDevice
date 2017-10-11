@@ -7,7 +7,6 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 /*--------------------------------生产模式---------------------------------------*/
 module.exports = merge(common,{
-
     plugins:[
         new webpack.optimize.OccurrenceOrderPlugin(), // 优化高使用率模块为短id，靠前,webpack2已经默认支持无需配置
         new webpack.NoEmitOnErrorsPlugin(), // 关闭错误调试 NoErrorsPlugin is deprecated
@@ -35,7 +34,12 @@ module.exports = merge(common,{
         new ExtractTextPlugin({ // 抽离样式表
             filename: "bundle.css"
         }),
-        new webpack.optimize.CommonsChunkPlugin('commons'), // 抽取重复引用的代码为公共模块
+        //new webpack.optimize.CommonsChunkPlugin('commons'),
+        new webpack.optimize.CommonsChunkPlugin({  // 抽取重复引用的代码为公共模块
+            names: ['commons'],
+            filename: '[name].[hash].js',
+            minChunks: Infinity
+        })
     ]
 });
 

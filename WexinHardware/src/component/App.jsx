@@ -1,9 +1,9 @@
 
-import React,{ Component } from 'react';
+import React,{ PureComponent } from 'react';
 import { Link } from 'react-router';
 import Header from './Header.jsx';
 
-class App extends Component{
+class App extends PureComponent{
     constructor(props){
         super(props);
     }

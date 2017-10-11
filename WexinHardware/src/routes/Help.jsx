@@ -1,13 +1,16 @@
 
-import React,{ Component } from 'react';
+import React,{ PureComponent } from 'react';
 
-class Help extends Component{
+class Help extends PureComponent{
     constructor(props){
         super(props);
     }
     render(){
         return (
-            <section>帮助页面</section>
+            <section>
+                <h1>Welcome帮助页面</h1>
+                <div className="block">block</div>
+            </section>
         )
     }
 }

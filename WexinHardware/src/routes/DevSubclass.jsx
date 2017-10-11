@@ -4,10 +4,10 @@
 *
 * */
 
-import React,{ Component } from 'react';
+import React,{ PureComponent } from 'react';
 import Header from '../component/Header.jsx';
 
-class DevCategory extends Component{
+class DevCategory extends PureComponent{
     constructor(props){
         super(props);
     }

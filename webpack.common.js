@@ -9,13 +9,13 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = {
     entry: {
         index: './WexinHardware/src/index.js',
-        commons: ['react']
+        commons: ['react','react-dom','react-router']
     },
     output: {
         filename: '[name].bundle.js',
         path: path.resolve(__dirname, './WexinHardware/build')
     },
-    module:{
+    module: {
         rules:[
             // js-module
             {
@@ -73,7 +73,7 @@ module.exports = {
         // }),
     ],
     resolve: {  // 省略文件扩展名
-        extensions: [ '.js', '.jsx', '.es6', '.json', '.css', '.less', '.scss', '.html', '.md', '.markdown', 'coffee'],
+        extensions: ['.js', '.jsx', '.es6', '.json', '.css', '.less', '.scss', '.html', '.md', '.markdown', 'coffee'],
         alias: {}
     },
 };
