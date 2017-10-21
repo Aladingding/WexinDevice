@@ -2,7 +2,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Router, Route, hashHistory } from 'react-router';
-import App from './component/App';
+import App from './main/App';
 import Help from './routes/Help';
 import DevCategory from './routes/DevCategory';
 import DevSubclass from './routes/DevSubclass';
@@ -19,3 +19,4 @@ const router = (
 );
 
 render(router,container);
+

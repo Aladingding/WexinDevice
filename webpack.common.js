@@ -65,7 +65,7 @@ module.exports = {
         new CleanWebpackPlugin(['WexinHardware/build']), // 每次编译清除重复文件
         new HtmlWebpackPlugin({ // 模板文件
             template: path.resolve(__dirname, "./WexinHardware/src/index.ejs"),
-            fillName: '../index.html',
+            fileName: '../index.html',
             title: 'Production',
         }),
         // new ExtractTextPlugin({

@@ -5,7 +5,7 @@
 * */
 
 import React,{ PureComponent } from 'react';
-import Header from '../component/Header.jsx';
+import Header from '../main/Header.jsx';
 
 class DevCategory extends PureComponent{
     constructor(props){
